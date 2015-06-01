@@ -29,7 +29,7 @@ module.exports = (window, document, $, navigator) ->
 		fetchDescription: (provider) ->
 			return if providers_desc[provider]
 			providers_desc[provider] = true
-			$.ajax(
+			window.$.ajax(
 				url: config.oauthd_api + "/providers/" + provider
 				data:
 					extend: true
@@ -139,7 +139,7 @@ module.exports = (window, document, $, navigator) ->
 					wnd = undefined
 					frm = undefined
 					wndTimeout = undefined
-					defer = $.Deferred()
+					defer = window.$.Deferred()
 					# defer = Q.defer()
 					opts = opts or {}
 					unless config.key
@@ -268,7 +268,7 @@ module.exports = (window, document, $, navigator) ->
 					return
 
 				callback: (provider, opts, callback) ->
-					defer = $.Deferred()
+					defer = window.$.Deferred()
 					# defer = Q.defer()
 					if arguments.length is 1 and typeof provider == "function"
 						callback = provider
